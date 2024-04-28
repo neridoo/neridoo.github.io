@@ -127,6 +127,71 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
@@ -152,8 +217,33 @@
             <p>Hi guys :) ！！</p>
 <p>大家好！欢迎来到我的博客。 </p>
 <p>这是我发布的第一个博客，感觉还是挺有意思的。</p>
-<p>为什么下面的内容被特地的忽略了</p>
-<p>本来我是想找一个平台去发自己出去玩的一些图文的，感觉小红书就是一个很不错的地方，但是又有点不喜欢小红书那种照片划来划去的感觉，直到我在小红书刷到了一位广告人发的帖子<a target="_blank" rel="noopener" href="https://www.xiaohongshu.com/explore/65f6e21a000000000d00d5f6">博客复古潮</a>和他的<a target="_blank" rel="noopener" href="https://marcusoops.work/">主页</a>，我感觉这就是我一直想要的。但是身为学生党，又有一点囊中羞涩，其实就是不想交服务器的钱，所以在b站上检索了很久发现了一个借用github建个人主页的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eg41157tL/?spm_id_from=333.337.search-card.all.click">方法</a>。于是乎，晚上吃完了饭就去了图书馆开干！在DID迪博主详细的教程下一个多小时就完成了建站，然后又一点点调整了主页里的一些细节。不过到了第二天，不知道为什么我的网址就报了 <em>Your connection is not private</em> 的错误，但好在使用流量还能打开，所以就先这样将就一下，等以后有了时间再去解决。 !</p>
+<p>本来我是想找一个平台去发自己出去玩的一些图文的，感觉小红书就是一个很不错的地方，但是又有点不喜欢小红书那种照片划来划去的感觉，直到我在小红书刷到了一位广告人发的帖子<a target="_blank" rel="noopener" href="https://www.xiaohongshu.com/explore/65f6e21a000000000d00d5f6">博客复古潮</a>和他的<a target="_blank" rel="noopener" href="https://marcusoops.work/">主页</a>，我感觉这就是我一直想要的。但是身为学生党，又有一点囊中羞涩，其实就是不想交服务器的钱，所以在b站上检索了很久发现了一个借用github建个人主页的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eg41157tL/?spm_id_from=333.337.search-card.all.click">方法</a>。于是乎，晚上吃完了饭就去了图书馆开干！在DID迪博主详细的教程下一个多小时就完成了建站，然后又一点点调整了主页里的一些细节。不过到了第二天，不知道为什么我的网址就报了 <em>Your connection is not private</em> 的错误，但好在使用流量还能打开，所以就先这样将就一下，等以后有了时间再去解决。 </p>
+<h2 id="如何建站"><a href="#如何建站" class="headerlink" title="如何建站"></a>如何建站</h2><p>闲扯了这么多，那就趁着记忆还是热的时候赶快写一些建站的教程吧。我感觉我以后可能还会把这些都推到了重新做一版（因为现在的网页感觉有好多小毛病）。</p>
+<h3 id="下载Git，-Node-js"><a href="#下载Git，-Node-js" class="headerlink" title="下载Git， Node.js"></a>下载Git， Node.js</h3><p>首先就是需要把几个比较基本的东西安装一下：</p>
+<p>可能是因为我用的是mac，它自己自带了git，所以可以不用安装。</p>
+<p>对于Node.js，我用的Homebrew下载，在Terminal里用指令直接就可以下载和安装，非常傻瓜。</p>
+<h3 id="绑定SSH"><a href="#绑定SSH" class="headerlink" title="绑定SSH"></a>绑定SSH</h3><h3 id="Hexo搭建"><a href="#Hexo搭建" class="headerlink" title="Hexo搭建"></a>Hexo搭建</h3><p>当你把之前都料理妥当了以后，我们就可以开始做大菜了。</p>
+<p>首先在一个你想的地方建立一个文件夹，我命名的‘Blog’，右击，有一个在此文件打开终端，然后你后续的指令都是建立在这个文件夹里的内容了。</p>
+<p>初始化hexo（在此步骤的时候文件夹一定要是空的）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+
+
+<p>生成界面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在本地建立预览</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>这时候通常回返回一个网址 <a target="_blank" rel="noopener" href="http://localhost:4000/%EF%BC%8C">http://localhost:4000/，</a> 你只需要点开就能看到你的网站现在是什么样子的啦。</p>
+<p>上传到github</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>这样关于网站的信息就会用git上传到github上，github收到了以后就会自己收拾收拾把你的网站赶上架了，不要一般需要等一会儿。</p>
+<p>对了，如果第一次上传的时候中间可能会问你要你Github的username和password。我直接输了我记得用户名和密码并不能通过验证，然后我不知道在哪里的评论区里看到需要在github里申请一个token就可以了。</p>
+<p>然后你就可以在 username.github.io上看到你自己的网站了。</p>
 
         </div>
 
