@@ -221,11 +221,41 @@
 <p>本来我是想找一个平台去发自己出去玩的一些图文的，感觉小红书就是一个很不错的地方，但是又有点不喜欢小红书那种照片划来划去的感觉，直到我在小红书刷到了一位广告人发的帖子<a target="_blank" rel="noopener" href="https://www.xiaohongshu.com/explore/65f6e21a000000000d00d5f6">博客复古潮</a>和他的<a target="_blank" rel="noopener" href="https://marcusoops.work/">主页</a>，我感觉这就是我一直想要的。但是身为学生党，又有一点囊中羞涩，其实就是不想交服务器的钱，所以在b站上检索了很久发现了一个借用github建个人主页的<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Eg41157tL/?spm_id_from=333.337.search-card.all.click">方法</a>。于是乎，晚上吃完了饭就去了图书馆开干！在DID迪博主详细的教程下一个多小时就完成了建站，然后又一点点调整了主页里的一些细节。不过到了第二天，不知道为什么我的网址就报了 <em>Your connection is not private</em> 的错误，但好在使用流量还能打开，所以就先这样将就一下，等以后有了时间再去解决。 </p>
 <h2 id="如何建站"><a href="#如何建站" class="headerlink" title="如何建站"></a>如何建站</h2><p>闲扯了这么多，那就趁着记忆还是热的时候赶快写一些建站的教程吧。我感觉我以后可能还会把这些都推到了重新做一版（因为现在的网页感觉有好多小毛病）。</p>
 <h3 id="下载Git，-Node-js"><a href="#下载Git，-Node-js" class="headerlink" title="下载Git， Node.js"></a>下载Git， Node.js</h3><p>首先就是需要把几个比较基本的东西安装一下：</p>
-<p>可能是因为我用的是mac，它自己自带了git，所以可以不用安装。</p>
-<p>对于Node.js，我用的Homebrew下载，在Terminal里用指令直接就可以下载和安装，非常傻瓜。</p>
-<h3 id="绑定SSH"><a href="#绑定SSH" class="headerlink" title="绑定SSH"></a>绑定SSH</h3><h3 id="Hexo搭建"><a href="#Hexo搭建" class="headerlink" title="Hexo搭建"></a>Hexo搭建</h3><p>当你把之前都料理妥当了以后，我们就可以开始做大菜了。</p>
+<p>可能是因为我用的是mac，它自己自带了git，所以可以不用安装。但是还需要去绑定github的账户。打开终端Terminal：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Name&quot;</span><br><span class="line">git config --global user.email &quot;Email&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>对于Node.js，我用的<strong>Homebrew</strong>下载，在Terminal里用指令直接就可以下载和安装，非常傻瓜。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install Node.js #具体的指令要去查homebrew的文档</span><br></pre></td></tr></table></figure>
+
+<p>安装完成以后，可以用下面的指令去检查是否安装成功：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git version</span><br><span class="line">node -v</span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="绑定SSH"><a href="#绑定SSH" class="headerlink" title="绑定SSH"></a>绑定SSH</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;email address&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然后一直回车或者回复y，过了一会儿会告诉你正确生成以后。你可以在根目录上找到一个叫‘.ssh’的文件。可能是因为我用的是mac系统，这个文件夹被隐藏了，所以从Finder上找不到，那我们可以用指令把key复制出来。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pbcopy &lt; ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>复制好了以后到github上setting里面找到ssh keys绑定进去。</p>
+<p>可以用下面的指令去检查绑定是否成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="Hexo搭建"><a href="#Hexo搭建" class="headerlink" title="Hexo搭建"></a>Hexo搭建</h3><p>当你把之前都料理妥当了以后，我们就可以开始做大菜了。</p>
 <p>首先在一个你想的地方建立一个文件夹，我命名的‘Blog’，右击，有一个在此文件打开终端，然后你后续的指令都是建立在这个文件夹里的内容了。</p>
-<p>初始化hexo（在此步骤的时候文件夹一定要是空的）</p>
+<p>初始化hexo（在此步骤的时候文件夹一定要是空的）。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
 
@@ -239,7 +269,16 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>这时候通常回返回一个网址 <a target="_blank" rel="noopener" href="http://localhost:4000/%EF%BC%8C">http://localhost:4000/，</a> 你只需要点开就能看到你的网站现在是什么样子的啦。</p>
-<p>上传到github</p>
+<p>在上传到GitHub之前，还需要安装一个hexo上传git的工具。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+
+<p>然后在Blog文件中找一个叫_config.yml的文件在最后把上传的地址更新一下。</p>
+<p><img src="config_deploy.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/username/username.github.io.git</span><br><span class="line">  branch: main</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>上传到github。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
 
 <p>这样关于网站的信息就会用git上传到github上，github收到了以后就会自己收拾收拾把你的网站赶上架了，不要一般需要等一会儿。</p>
