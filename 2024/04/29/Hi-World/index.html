@@ -284,6 +284,42 @@
 <p>这样关于网站的信息就会用git上传到github上，github收到了以后就会自己收拾收拾把你的网站赶上架了，不要一般需要等一会儿。</p>
 <p>对了，如果第一次上传的时候中间可能会问你要你Github的username和password。我直接输了我记得用户名和密码并不能通过验证，然后我不知道在哪里的评论区里看到需要在github里申请一个token就可以了。</p>
 <p>然后你就可以在 username.github.io上看到你自己的网站了。</p>
+<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><h3 id="PDF显示"><a href="#PDF显示" class="headerlink" title="PDF显示"></a>PDF显示</h3><p>安装插件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-pdf</span><br></pre></td></tr></table></figure>
+
+<p>安装完成以后，在markdown中在要加pdf的地方添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% pdf &quot;name-of-pdf.pdf&quot; %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我在文章中是想要做成和<strong>canvas</strong> 一样的效果，就是点一下可以展开。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;a href=&quot;javascript:void(0)&quot; onclick=&quot;toggleText()&quot;&gt;点击展开详细内容&lt;/a&gt;</span><br><span class="line">    &lt;div id=&quot;extraContent&quot; style=&quot;display:none;&quot;&gt;</span><br><span class="line">        你想要展开的pdf # &#123;% pdf &quot;name-of-pdf.pdf&quot; %&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    function toggleText() &#123;</span><br><span class="line">        var content = document.getElementById(&#x27;extraContent&#x27;);</span><br><span class="line">        if (content.style.display === &#x27;block&#x27;) &#123;</span><br><span class="line">            content.style.display = &#x27;none&#x27;;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            content.style.display = &#x27;block&#x27;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>效果:</strong></p>
+<div>
+    <a href="javascript:void(0)" onclick="toggleText()">点击展开详细内容</a>
+    <div id="extraContent" style="display:none;">
+        你想要展开的pdf 	<!-- 
+
+	<div class="row">
+    <embed src="name-of-pdf.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+ -->
+    </div>
+</div>
+
+
+
+<script>
+    function toggleText() {
+        var content = document.getElementById('extraContent');
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+        } else {
+            content.style.display = 'block';
+        }
+    }
+</script>
 
         </div>
 
@@ -306,6 +342,8 @@
             </div>
         </section>
         <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="../../../05/03/tryout/">tryout</a>
             
             
         </section>
