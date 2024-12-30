@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="Kai">
+
+
+
+
+
+<title>2024-12-08 Heaven Sent - Live Nativity | Kai&#39;s Blog</title>
+
+
+
+    <link rel="icon" href="../../../../avatar.ico">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="../../../../css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="../../../../js/script.js"></script>
+    
+    <script src="../../../../js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        
+    
+
+
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const currentTheme = window.localStorage && window.localStorage.getItem('theme') || '';
+            const isDark = currentTheme === 'dark';
+            const pagebody = document.getElementsByTagName('body')[0]
+            if (isDark) {
+                pagebody.classList.add('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            } else {
+                pagebody.classList.remove('dark-theme');
+                // mobile
+                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+            }
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">三无导演&#39;s Blog</a></div>
+            <div class="menu navbar-right">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../category">Categories</a>
+                
+                    <a class="menu-item" href="../../../../tag">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">三无导演&#39;s Blog</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">&#9776; Menu</div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                    <a class="menu-item" href="../../../../archives">Posts</a>
+                
+                    <a class="menu-item" href="../../../../category">Categories</a>
+                
+                    <a class="menu-item" href="../../../../tag">Tags</a>
+                
+                    <a class="menu-item" href="../../../../about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if(toggleMenu.classList.contains("active")){
+           toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        }else{
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">2024-12-08 Heaven Sent - Live Nativity</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">Kai</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">十二月 8, 2024&nbsp;&nbsp;0:26:09</a>
+                        </span>
+                    
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h1 id="2024-12-08-Heaven-Sent-Live-Nativity"><a href="#2024-12-08-Heaven-Sent-Live-Nativity" class="headerlink" title="2024-12-08 Heaven Sent - Live Nativity"></a>2024-12-08 Heaven Sent - Live Nativity</h1><p>英国的12月，总少不了一个重要的节日——圣诞节。虽然在国内，我也常听说和庆祝圣诞节，但其实很多人并不了解它的起源。圣诞节本质上是一个宗教节日，用于纪念耶稣基督的降生。幸运的是，今年12月，我有机会参加了一次特别的活动，真正感受到圣诞节的深层意义。</p>
+<p>这个活动名为 <strong>“Heaven Sent”</strong>，是由位于利物浦 Kirkby 的 Kirkby Christian Fellowship (KCF) 教会举办的免费现场<strong>Live Nativity</strong>活动，旨在还原耶稣降生的场景并传递圣诞节的真实意义。(更正一下，我现在才知道活动名字叫Live Nativity，意思就是”重现耶稣诞生的故事场景”,然后Heaven Sent是举办这个活动的教会的名称) 关于<a target="_blank" rel="noopener" href="https://www.honglingjin.co.uk/73127.html">Nativity</a>的具体含义。</p>
+<blockquote>
+<p>![Nativity的含义](&#x2F;Users&#x2F;kai&#x2F;Documents&#x2F;My Blog&#x2F;文本&#x2F;2024-12-08 Heaven Sent&#x2F;Nativity的意思.png)</p>
+</blockquote>
+<p>刚好之前在Luna的引荐下认识了一对热情的香港夫妇 John 和 Peggy，他们邀请我们一起参与这个活动。活动中不仅有人和动物通过表演重现耶稣降生的故事，还有用心布置的场景和生动的角色扮演。虽然我对圣诞节并不陌生，也知道它是为了纪念耶稣的生日，但对于其中的背景和历史，我了解得并不深入。这次机会让我感到格外兴奋，因为可以通过亲身体验更好地理解这一节日。</p>
+<p>活动安排在12月8日，一个周日。那天 John 和 Peggy 特意开车来接我们，因为活动地点在 Kirkby 的一座教堂旁，离我们住的地方还有一段距离。如果坐公交需要一个小时才能到达，但那天因为参与活动的人不多，John 便直接来接我们，这让我既感动又感激。坐在车上，窗外的冬日景色和即将展开的活动让我满怀期待。</p>
+<p>我们把车停在旁边的教会高中，然后步行到活动场地。一开始，我们排队进入‘’Bethlehem的Inn‘’，排队时一直有装扮成罗马士兵的人在和我们互动。他们还原了士兵的“凶狠”形象，会对我们大声嚷嚷，比如“你怎么没洗头？”或者用刻薄的语气命令我们“去关注他们的Instagram”。虽然语气很mean，但也挺有趣的。后来John告诉我们，这其实是他们的“人设”，所以越刻薄越符合他们的角色。</p>
+<img src="罗马士兵拿ins.jpg" alt="罗马士兵拿ins" style="zoom: 67%;" />
+
+<p>终于排到我们进了Inn。那是一个很大的房间，空气中弥漫着浓浓的香料味道。一坐下，马上就有装扮成服务员的老奶奶给我们发饮料，气氛特别温馨。我发现来参加活动的大多是父母带着小朋友，孩子们通过这样的形式了解耶稣降临的故事。<img src="/Users/kai/Documents/My Blog/文本/2024-12-08 Heaven Sent/Inn_kid.jpg" style="zoom:80%;" /></p>
+<p>等大家都坐好，演出就开始了。一位装扮成Innkeeper的老者走出来，和我们对话，给我们讲述故事。</p>
+<p><img src="/Users/kai/Documents/My Blog/文本/2024-12-08 Heaven Sent/Innkeeper1.jpg" style="zoom:50%;" />他说，罗马帝国下令人口普查（Census），要求所有人回到自己的祖籍地登记，所以伯利恒现在人满为患，Inn里早就没有空房了。他感慨道：“我现在有很多的钱，但钱却换不来面包。罗马帝国的税收太重了，交完税后，很多人连温饱都成问题。”他的语气中既无奈又愤怒，似乎在控诉那个时代的压迫。接着他继续讲述：“那天晚上，一对疲惫的夫妇敲了我的门。妻子看上去快要临盆了，我知道她需要一个地方安顿下来。但我的房间都满了，我真的很抱歉。最后，我带他们去了客栈后面的马厩——那是唯一可以挡风遮雨的地方。那一晚，我从未想过，一个改变世界的孩子会在那样一个地方降生。”</p>
+<p>说到这里，房间里的服务员又出现了，给我们每人发了一个金币（其实是巧克力）。他们告诉我们，这金币是待会儿进入Bethlehem的通行“货币”。老奶奶看到旁边的小朋友还特地嘱咐他们：“别吃掉哦，要用这个交税进城的哦！”![](&#x2F;Users&#x2F;kai&#x2F;Documents&#x2F;My Blog&#x2F;文本&#x2F;2024-12-08 Heaven Sent&#x2F;金币.jpg)</p>
+<p>接着，我们被引导前往Bethlehem。排到门口时，有一位“居民”充当导游，带着我们游览全程。我们去了铁匠铺、裁缝铺、面包房和香料房，还看到了骆驼和驴，场景布置得特别真实。后来我们进了一个帐篷，里面有三个<strong>Wise Men</strong>，他们开始讲述自己的故事。</p>
+<p>他们说，夜观星象时得知有一位新的国王即将诞生，于是出发前往耶路撒冷拜见当时希律王朝（Herodian Kingdom of Judea）的国王。希律王得知此事后，要求Wise Men找到新生的国王后告诉他，声称自己也要去拜访。但后来，Wise Men追随星星到了Bethlehem，在马厩里见到了圣母玛利亚和刚降生的耶稣。他们献上了三样贵重的礼物：<strong>黄金</strong>(Gold)象征耶稣的王权，<strong>乳香</strong>(Frankincense)象征耶稣的神性和大祭司身份，<strong>没药</strong>(Myrrh)则象征耶稣将经历的苦难与牺牲。没药通常用来涂抹在死者身上。后来，三个Wise Men在梦中受到警告，不要返回告诉希律王，于是选择绕道回了家乡。</p>
+<p>接下来，我们走进了一个小马厩，里面坐着装扮成约瑟和玛利亚的演员，让人惊喜的是，玛利亚怀里抱着一个真的小宝宝！逛完马厩后，我们被引导进入了一个房间。一进去，就有小朋友给我们发<strong>ribbon</strong>，然后大家围着各种乐器一起合唱与基督相关的歌曲。这一场景让我不由得联想到电影《周处除三害》中修道院唱歌的片段，气氛特别祥和、虔诚。</p>
+<p>活动结束后，刚好是晚上，John带我们去吃了Wendy’s。这是Peggy留学时最爱的快餐店之一。我也了解到，John和Peggy都是在美国读书的，John在Boston工作，Peggy则是在俄亥俄州读博士。</p>
+
+        </div>
+
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="../../../07/18/Japan2024/">Japan</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© Kai | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
